@@ -1,0 +1,48 @@
+.btn {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(215, 215, 215);
+  transition: 0.35s all ease;
+}
+
+/* Button primary */
+
+.btn.btn-primary {
+  background-color: #dbeafe;
+  color: #4d6bfe;
+}
+
+.btn.btn-primary:hover {
+  background-color: #c6dcf8;
+}
+
+/* Button Danger */
+
+.btn.btn-danger {
+  background-color: #de2f1b;
+  color: #fff;
+}
+
+.btn.btn-danger:hover {
+  background-color: #c61602;
+}
+
+.btn.btn-success {
+  color: #fff;
+  background-color: #07dc6e;
+}
+
+.btn.btn-success:hover {
+  background-color: #05c461;
+}
+
+.btn.btn-ai {
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+}

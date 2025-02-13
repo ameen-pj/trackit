@@ -1,0 +1,101 @@
+.modal {
+  width: 30%;
+  height: 60%;
+  border-radius: 2%;
+  border: none;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.modal::backdrop {
+  background-color: white;
+  opacity: 0.4;
+}
+
+.modal .modal-header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.modal .modal-body {
+  width: 100%;
+  height: 80%;
+}
+
+.modal-body .modal-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.modal-body .modal-form .input-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.modal-body .modal-form label {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 300;
+}
+
+.modal-body .modal-form input {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 300;
+  height: 40%;
+  line-height: 1.2;
+}
+
+.modal-body .modal-form .input-container.radio-container {
+  height: 10%;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  align-items: center;
+}
+
+.input-container.radio-container fieldset {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8em;
+  border: none;
+}
+
+/* Search bar */
+
+#search-modal {
+  width: 30%;
+  height: 3vh;
+  border: none;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  border-radius: 2%;
+  border-radius: 5px;
+}
+
+#search-modal .search-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#search-modal #search {
+  width: 80%;
+  height: 100%;
+  border: none;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 300;
+}
+
+#search-modal btn {
+  width: 20%;
+  height: 100%;
+}

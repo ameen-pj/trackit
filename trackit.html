@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trackit ✅</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Liter&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/navbar.css" />
+    <link rel="stylesheet" href="./style/buttons.css" />
+    <link rel="stylesheet" href="./style/modal.css" />
+
+    <!-- Indexed DB promised API wrapper -->
+    <script src="https://cdn.jsdelivr.net/npm/idb@8/build/umd.js"></script>
+    <!-- Script Files  -->
+    <script type="module" src="./script/modalHandler.js" defer></script>
+    <script type="module" src="./script/formHandler.js" defer></script>
+    <script type="module" src="./script/cardEventHandlers.js"></script>
+    <script type="module" src="./script/main.js"></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <h1 class="navbar-logo">Trackit ✅</h1>
+      <div class="navbar-items">
+        <button
+          id="add-assignment"
+          data-modal-id="#add-assignment-modal"
+          class="btn btn-success open-modal-button"
+        >
+          Add Assignment +
+        </button>
+        <button class="btn btn-primary">🔔</button>
+        <button class="btn open-modal-button" data-modal-id="#search-modal">
+          🔍
+        </button>
+        <!-- <button class="btn btn-ai">Ask AI ✨</button> -->
+        <!-- Search dialog -->
+        <dialog id="search-modal" class="search-modal">
+          <div class="search-container">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search 🔍"
+            />
+            <button
+              type="button"
+              data-modal-id="#search-modal"
+              class="btn close-modal-button"
+              type="button"
+            >
+              ❌
+            </button>
+          </div>
+        </dialog>
+      </div>
+    </nav>
+
+    <br />
+    <br />
+
+    <!-- Main Container -->
+    <div class="main-container"></div>
+    <!-- Add Assignment Modal -->
+    <dialog id="add-assignment-modal" class="modal">
+      <div class="modal-header">
+        <h1>Add Assignment</h1>
+        <button
+          type="submit"
+          data-modal-id="#add-assignment-modal"
+          class="btn close-modal-button"
+          type="button"
+        >
+          ❌
+        </button>
+      </div>
+      <hr />
+      <br />
+      <div class="modal-body">
+        <form id="add-assignment-form" class="modal-form">
+          <div class="input-container">
+            <label for="assignment-title">Assignment Title</label>
+            <input type="text" id="assignment-title" />
+          </div>
+          <div class="input-container">
+            <label for="assignment-description">Assignment Description</label>
+            <input type="text" id="assignment-description" />
+          </div>
+
+          <div class="input-container">
+            <label for="assignment-duedate">Due Date</label>
+            <input type="datetime-local" id="assignment-duedate" />
+          </div>
+
+          <div class="input-container radio-container">
+            <fieldset id="assignment-status">
+              <label>
+                <input
+                  type="radio"
+                  name="assignment-status"
+                  value="INCOMPLETE"
+                  checked
+                />Incomplete ❌
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="assignment-status"
+                  value="IN_PROGRESS"
+                />In Progress 🏃‍➡️
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="assignment-status"
+                  value="COMPLETE"
+                />Complete ✅
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="input-container">
+            <button
+              type="submit"
+              id="add-assignment-button"
+              class="btn btn-success"
+            >
+              Save Assignment
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <!-- Edit Assignment Modal -->
+    <dialog id="edit-assignment-modal" class="modal">
+      <div class="modal-header">
+        <h1>Edit Assignment</h1>
+        <button
+          data-modal-id="#edit-assignment-modal"
+          class="btn close-modal-button"
+          type="button"
+        >
+          ❌
+        </button>
+      </div>
+      <hr />
+      <div class="modal-body">
+        <form id="edit-assignment-form" class="modal-form">
+          <div class="input-container">
+            <label for="assignment-title">Assignment Title</label>
+            <input type="text" id="assignment-title" />
+          </div>
+          <div class="input-container">
+            <label for="assignment-description">Assignment Description</label>
+            <input type="text" id="assignment-description" />
+          </div>
+
+          <div class="input-container">
+            <label for="assignment-duedate">Due Date</label>
+            <input type="datetime-local" id="assignment-duedate" />
+          </div>
+
+          <div class="input-container radio-container">
+            <fieldset id="assignment-status">
+              <label>
+                <input
+                  type="radio"
+                  name="assignment-status"
+                  value="INCOMPLETE"
+                  data-assignment-status="INCOMPLETE"
+                />Incomplete ❌
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="assignment-status"
+                  value="IN_PROGRESS"
+                  data-assignment-status="IN_PROGRESS"
+                />In Progress 🏃‍➡️
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="assignment-status"
+                  value="COMPLETE"
+                  data-assignment-status="COMPLETE"
+                />Complete ✅
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="input-container">
+            <button
+              type="submit"
+              id="edit-assignment-button"
+              class="btn btn-success"
+            >
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>
