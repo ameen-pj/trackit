@@ -1,6 +1,7 @@
 import { AssignmentManagement } from "./backend/AssignmentManagement.js";
 import { addCard } from "./cardManager.js";
 import { AssignmentCard } from "./component/AssignmentCard.js";
+import { OllamaGenAIService } from "./component/OllamaGenAIService.js";
 
 const refreshAssignmentCards = new CustomEvent("refreshAssignmentCards");
 
@@ -15,5 +16,6 @@ document.addEventListener("refreshAssignmentCards", async (event) => {
 
 // Define assignment card
 customElements.define("assignment-card", AssignmentCard);
+customElements.define("gen-ai", OllamaGenAIService);
 
 document.dispatchEvent(refreshAssignmentCards);

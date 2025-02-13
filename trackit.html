@@ -15,6 +15,12 @@
       href="https://fonts.googleapis.com/css2?family=Liter&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
+      integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/navbar.css" />
@@ -213,6 +219,22 @@
           </div>
         </form>
       </div>
+    </dialog>
+    <!-- Gen AI modal -->
+    <dialog id="gen-ai-modal" class="modal">
+      <div class="modal-header">
+        <h1>AI ✨ -</h1>
+        <button
+          data-modal-id="#gen-ai-modal"
+          class="btn close-modal-button"
+          type="button"
+        >
+          ❌
+        </button>
+      </div>
+      <hr />
+      <br />
+      <gen-ai />
     </dialog>
   </body>
 </html>

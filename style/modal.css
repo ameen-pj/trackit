@@ -99,3 +99,17 @@
   width: 20%;
   height: 100%;
 }
+
+#gen-ai-modal {
+  width: 80%;
+  height: 90%;
+}
+
+#gen-ai-modal .modal-header {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+}

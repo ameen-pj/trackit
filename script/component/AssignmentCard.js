@@ -55,8 +55,17 @@ export class AssignmentCard extends HTMLElement {
         justify-content:space-evenly;
         align-items: center;
         font-family: "JetBrains Mono", monospace;
-        font-weight: 500;
-        font-size:0.7em;
+        font-weight: 800;
+        font-size:0.68em;
+      }
+
+      .assignment-status-container label {
+        width:33%;
+        height:100%;
+        display:flex;
+        justify-content:space-evenly;
+        align-items:center;
+
       }
 
 
@@ -249,7 +258,8 @@ export class AssignmentCard extends HTMLElement {
       composed: true,
       bubbles: true,
       detail: {
-        id: Number(this.id),
+        title: this.getAttribute("title"),
+        description: this.getAttribute("description"),
       },
     });
     this.dispatchEvent(event);
