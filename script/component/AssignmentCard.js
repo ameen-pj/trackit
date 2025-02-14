@@ -19,6 +19,11 @@ export class AssignmentCard extends HTMLElement {
 				font-family: Arial, sans-serif;
 			}
 
+      .assignment-card:hover {
+        box-shadow: rgba(0, 0, 0, 0.6) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.6) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.6) 0px 0px 0px 1px inset;
+				transition: 0.8s all ease;
+      }
+
 			.assignment-header {
 				padding: 0px;
 				margin: 0px;

@@ -65,7 +65,7 @@ editAssignmentForm.addEventListener("submit", async (event) => {
 
 // Search bar
 const searchBar = document.querySelector("#search");
-searchBar.addEventListener("keydown", (e) => {
+searchBar.addEventListener("keyup", (e) => {
   console.log(searchBar.value);
   let cards = document.querySelectorAll("assignment-card");
 
