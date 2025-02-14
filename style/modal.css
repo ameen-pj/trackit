@@ -18,7 +18,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "JetBrains Mono", monospace;
+  /* font-family: "JetBrains Mono", monospace; */
+  font-family: "Poppins", serif;
 }
 
 .modal .modal-body {
@@ -43,12 +44,15 @@
 }
 
 .modal-body .modal-form label {
-  font-family: "JetBrains Mono", monospace;
-  font-weight: 300;
+  /* font-family: "JetBrains Mono", monospace; */
+  font-family: "Poppins", serif;
+  font-weight: 500;
 }
 
 .modal-body .modal-form input {
-  font-family: "JetBrains Mono", monospace;
+  padding-left: 0.8em;
+  /* font-family: "JetBrains Mono", monospace; */
+  font-family: "Poppins", serif;
   font-weight: 300;
   height: 40%;
   line-height: 1.2;
@@ -62,9 +66,15 @@
 }
 
 .input-container.radio-container fieldset {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.8em;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 0.9em;
   border: none;
+}
+
+.input-container.radio-container fieldset label {
+  font-family: "JetBrains Mono", monospace;
 }
 
 /* Search bar */

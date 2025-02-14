@@ -5,7 +5,7 @@ export class OllamaGenAIService extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         .ai-text {
-          font-family: "JetBrains Mono", monospace;
+          font-family: "Poppins", serif;
           font-size: 0.8em;
         }
       </style>
@@ -84,7 +84,7 @@ export class OllamaGenAIService extends HTMLElement {
         }
       }
       this.dispatchEvent(
-        new CustomEvent("genComp", {
+        new CustomEvent("genAIComplete", {
           bubbles: true,
           composed: true,
           detail: {
@@ -97,6 +97,7 @@ export class OllamaGenAIService extends HTMLElement {
         aiResponseElement.innerText
       );
     } catch (error) {
+      console.log(error);
       alert("Error calling the API:", error);
     }
   }

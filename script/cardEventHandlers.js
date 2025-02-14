@@ -7,9 +7,10 @@ document.addEventListener("genAI", async (event) => {
   const genAIModal = document.querySelector("#gen-ai-modal");
   genAIModal.showModal();
 
-  let prompt = `Write an assignment in not more that 500 words on topic: ${event.detail.title}. Here is a brief description: ${event.detail.description}. `;
+  genAIModal.querySelector(".close-modal-button").disabled = true;
 
-  genAIModal.querySelector("h1").innerText += ` ${event.detail.title}`;
+  let prompt = `Write an assignment in not more that 200 words on topic: ${event.detail.title}. Here is a brief description: ${event.detail.description}. `;
+  genAIModal.querySelector("h1").innerText = `AI ✨ - ${event.detail.title}`;
 
   genAIModal
     .querySelector("gen-ai")
@@ -17,6 +18,11 @@ document.addEventListener("genAI", async (event) => {
   genAIModal.querySelector("gen-ai").setAttribute("ollamahost", "localhost");
   genAIModal.querySelector("gen-ai").setAttribute("ollamaport", "11434");
   genAIModal.querySelector("gen-ai").setAttribute("prompt", prompt);
+});
+
+document.addEventListener("genAIComplete", (event) => {
+  const genAIModal = document.querySelector("#gen-ai-modal");
+  genAIModal.querySelector(".close-modal-button").disabled = false;
 });
 
 // Update status
