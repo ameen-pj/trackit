@@ -24,6 +24,10 @@ export class AssignmentCard extends HTMLElement {
         transition: 0.8s all ease;
       }
 
+      .assignment-card.disabled {
+        opacity: 0.4;
+      }
+
       .assignment-header {
         padding: 0px;
         margin: 0px;
@@ -206,6 +210,7 @@ export class AssignmentCard extends HTMLElement {
   }
 
   render() {
+    const container = this.shadowRoot.querySelector(".assignment-card");
     const title = this.shadowRoot.querySelector(".assignment-header");
     const description = this.shadowRoot.querySelector(
       ".assignment-description"
@@ -214,8 +219,10 @@ export class AssignmentCard extends HTMLElement {
 
     if (this.getAttribute("status") == "COMPLETE") {
       title.innerHTML = `<s>${this.getAttribute("title")}</s>`;
+      container.classList.add("disabled");
     } else {
       title.innerText = this.getAttribute("title");
+      container.classList.remove("disabled");
     }
 
     description.innerText = this.getAttribute("description");
