@@ -6,49 +6,53 @@ export class AssignmentCard extends HTMLElement {
 
     this.attachShadow({ mode: "open" });
     this.shadowRoot.innerHTML = `
-		<style>
-			.assignment-card {
-				display: flex;
+    <style>
+      .assignment-card {
+        display: flex;
         flex-direction:column;
         justify-content:space-evenly;
         height:100%;
-				padding: 20px;
-				margin: 10px;
+        padding: 20px;
+        margin: 10px;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-				border-radius: 8px;
-				font-family: Arial, sans-serif;
-			}
+        border-radius: 8px;
+        font-family: Arial, sans-serif;
+      }
 
       .assignment-card:hover {
         box-shadow: rgba(0, 0, 0, 0.6) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.6) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.6) 0px 0px 0px 1px inset;
-				transition: 0.8s all ease;
+        transition: 0.8s all ease;
       }
 
-			.assignment-header {
-				padding: 0px;
-				margin: 0px;
-				font-size: 1.5em;
-				margin-bottom: 10px;
-			}
+      .assignment-card.disabled {
+        opacity: 0.4;
+      }
 
-			.assignment-description {
-				padding: 0px;
-				margin: 0px;
-				font-size: 1em;
-				color: #505050;
-				margin-bottom: 10px;
-			}
+      .assignment-header {
+        padding: 0px;
+        margin: 0px;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
 
-			.assignment-due {
-				padding: 0px;
-				margin: 0px;
-				font-size: 0.9em;
-				color: #808080;
-			}
+      .assignment-description {
+        padding: 0px;
+        margin: 0px;
+        font-size: 1em;
+        color: #505050;
+        margin-bottom: 10px;
+      }
 
-			.assignment-due.past-due {
-				color: #cc4132;
-			}
+      .assignment-due {
+        padding: 0px;
+        margin: 0px;
+        font-size: 0.9em;
+        color: #808080;
+      }
+
+      .assignment-due.past-due {
+        color: #cc4132;
+      }
 
 
       .assignment-status-container {
@@ -74,21 +78,21 @@ export class AssignmentCard extends HTMLElement {
       }
 
 
-			.assignment-buttons {
+      .assignment-buttons {
         width:100%;
         height:30%;
-				display: flex;
+        display: flex;
         justify-content:space-around;
         align-items:center;
-			}
+      }
 
-			.btn {
-				padding: 8px 15px;
-				font-size: 0.9em;
-				cursor: pointer;
-				border: none;
-				border-radius: 5px;
-			}
+      .btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+      }
 
       .btn:hover {
         background-color: rgb(215, 215, 215);
@@ -131,12 +135,12 @@ export class AssignmentCard extends HTMLElement {
         background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
       }
         
-		</style>
+    </style>
 
-		<div class="assignment-card">
-			<h1 class="assignment-header"></h1>
+    <div class="assignment-card">
+      <h1 class="assignment-header"></h1>
       <p class="assignment-description"></p>
-			<b><p class="assignment-due"></p></b>
+      <b><p class="assignment-due"></p></b>
       <br>
       <fieldset class="assignment-status-container">
         <label>
@@ -165,12 +169,12 @@ export class AssignmentCard extends HTMLElement {
         </label>
       </fieldset>
       <br>
-			<div class="assignment-buttons">
-				<button class="btn edit-button">Edit ✏️</button>
-				<button class="btn btn-danger delete-button">Delete 🗑️</button>
-				<button class="btn btn-ai ai-button">Ask AI ✨</button>
-			</div>
-		</div>
+      <div class="assignment-buttons">
+        <button class="btn edit-button">Edit ✏️</button>
+        <button class="btn btn-danger delete-button">Delete 🗑️</button>
+        <button class="btn btn-ai ai-button">Ask AI ✨</button>
+      </div>
+    </div>
 `;
   }
 
@@ -206,6 +210,7 @@ export class AssignmentCard extends HTMLElement {
   }
 
   render() {
+    const container = this.shadowRoot.querySelector(".assignment-card");
     const title = this.shadowRoot.querySelector(".assignment-header");
     const description = this.shadowRoot.querySelector(
       ".assignment-description"
@@ -214,8 +219,10 @@ export class AssignmentCard extends HTMLElement {
 
     if (this.getAttribute("status") == "COMPLETE") {
       title.innerHTML = `<s>${this.getAttribute("title")}</s>`;
+      container.classList.add("disabled");
     } else {
       title.innerText = this.getAttribute("title");
+      container.classList.remove("disabled");
     }
 
     description.innerText = this.getAttribute("description");
