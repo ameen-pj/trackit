@@ -78,7 +78,7 @@ export class AssignmentCard extends HTMLElement {
         width:100%;
         height:30%;
 				display: flex;
-        justify-content:space-evenly;
+        justify-content:space-around;
         align-items:center;
 			}
 
@@ -168,7 +168,7 @@ export class AssignmentCard extends HTMLElement {
 			<div class="assignment-buttons">
 				<button class="btn edit-button">Edit ✏️</button>
 				<button class="btn btn-danger delete-button">Delete 🗑️</button>
-				<button class="btn btn-ai ai-button">Generate with AI ✨</button>
+				<button class="btn btn-ai ai-button">Ask AI ✨</button>
 			</div>
 		</div>
 `;

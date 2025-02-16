@@ -18,3 +18,18 @@ closeModalButtons.forEach((closeModalButton) => {
     document.querySelector(e.target.dataset.modalId).close();
   });
 });
+
+// Shortcut for search bar
+document.addEventListener("keyup", (event) => {
+  if (event.key === "/") {
+    document.querySelector("#search-modal").show();
+  }
+});
+// Close all modals on escape except AI modal
+document.addEventListener("keyup", (event) => {
+  if (event.key === "Escape") {
+    document.querySelector("#search-modal").close();
+    document.querySelector("#add-assignment-modal").close();
+    document.querySelector("#edit-assignment-modal").close();
+  }
+});

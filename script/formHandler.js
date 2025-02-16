@@ -66,23 +66,17 @@ editAssignmentForm.addEventListener("submit", async (event) => {
 // Search bar
 const searchBar = document.querySelector("#search");
 searchBar.addEventListener("keyup", (e) => {
-  console.log(searchBar.value);
   let cards = document.querySelectorAll("assignment-card");
 
-  cards.forEach((card) => {
-    if (
-      !card
-        .getAttribute("title")
-        .toLowerCase()
-        .includes(searchBar.value.toLowerCase()) &&
-      !card
-        .getAttribute("description")
-        .toLowerCase()
-        .includes(searchBar.value.toLowerCase())
-    ) {
-      card.classList.add("inactive");
+  var searchvalue = searchBar.value.toLowerCase();
+  for (let i = 0; i < cards.length; i++) {
+    let title = cards[i].getAttribute("title").toLowerCase();
+    let description = cards[i].getAttribute("description").toLowerCase();
+
+    if (title.includes(searchvalue) || description.includes(searchvalue)) {
+      cards[i].classList.remove("inactive");
     } else {
-      card.classList.remove("inactive");
+      cards[i].classList.add("inactive");
     }
-  });
+  }
 });

@@ -9,7 +9,7 @@ document.addEventListener("genAI", async (event) => {
 
   genAIModal.querySelector(".close-modal-button").disabled = true;
 
-  let prompt = `Write an assignment in not more that 200 words on topic: ${event.detail.title}. Here is a brief description: ${event.detail.description}. `;
+  let prompt = `Write an assignment in not more that 300 words on topic: ${event.detail.title}. Here is a brief description: ${event.detail.description}. `;
   genAIModal.querySelector("h1").innerText = `AI ✨ - ${event.detail.title}`;
 
   genAIModal
