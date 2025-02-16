@@ -25,7 +25,7 @@ export class AssignmentCard extends HTMLElement {
       }
 
       .assignment-card.disabled {
-        opacity: 0.4;
+        opacity: 0.5;
       }
 
       .assignment-header {
