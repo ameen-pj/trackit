@@ -1,7 +1,8 @@
 # Trackit ✅
 
-_An AI powered assignment tracker application built using JavaScript, HTML and CSS using my custom [OllamaGenAIWebComponent](https://github.com/ameen-pj/OllamaGenAIWebComponent)_
+_An AI powered assignment tracker application built using JavaScript, HTML and CSS using my custom [OllamaGenAIWebComponent](https://github.com/ameen-pj/OllamaGenAIWebComponent)_    
 
+Live Website: [Trackit – Assignment Tracker](https://joellijo32.github.io/Trackit---Assignment-Tracker/)   
 ## Contributors
 
 Thank you guys ✨
