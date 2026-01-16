@@ -30,34 +30,15 @@
     <link rel="stylesheet" href="./style/navbar.css" />
     <link rel="stylesheet" href="./style/buttons.css" />
     <link rel="stylesheet" href="./style/modal.css" />
-
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
-      integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script> -->
-    <script src="./lib/showdown.min.js"></script>
-
-    <!-- Indexed DB promised API wrapper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/idb@8/build/umd.js"></script> -->
-    <script src="./lib/umd.js"></script>
-    <!-- Script Files  -->
-    <script type="module" src="./script/modalHandler.js" defer></script>
-    <script type="module" src="./script/formHandler.js" defer></script>
-    <script type="module" src="./script/cardEventHandlers.js"></script>
-    <script type="module" src="./script/main.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo-container">
+    <nav class="navbar navbar-expand-lg bg-light">
+
+
+
+      <a class="logo-container navbar-brand" href="#">
         <img
           class="logo"
           src="./assets/logo.png"
@@ -66,38 +47,58 @@
           alt="Logo"
         />
         <h1>Trackit</h1>
-      </div>
-      <div class="navbar-items">
-        <button
-          id="add-assignment"
-          data-modal-id="#add-assignment-modal"
-          class="btn btn-success open-modal-button"
-        >
-          Add Assignment +
-        </button>
-        <button class="btn open-modal-button" data-modal-id="#search-modal">
-          🔍
-        </button>
-        <!-- <button class="btn btn-ai">Ask AI ✨</button> -->
-        <!-- Search dialog -->
-        <dialog id="search-modal" class="search-modal">
-          <div class="search-container">
-            <input
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Search 🔍"
-            />
-            <button
-              type="button"
-              data-modal-id="#search-modal"
-              class="btn close-modal-button"
-              type="button"
-            >
-              ❌
-            </button>
-          </div>
-        </dialog>
+      </a>
+      <!-- hamburger -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#trackitNavbar"
+        aria-controls="trackitNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- collapse div -->
+      <div class="collapse navbar-collapse" id="trackitNavbar">
+
+
+
+
+        <div class="navbar-items ms-auto">
+          <button
+            id="add-assignment"
+            data-modal-id="#add-assignment-modal"
+            class="btn btn-success open-modal-button"
+          >
+            Add Assignment +
+          </button>
+          <button class="btn open-modal-button" data-modal-id="#search-modal">
+            🔍
+          </button>
+          <!-- <button class="btn btn-ai">Ask AI ✨</button> -->
+          <!-- Search dialog -->
+          <dialog id="search-modal" class="search-modal">
+            <div class="search-container">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Search 🔍"
+              />
+              <button
+                type="button"
+                data-modal-id="#search-modal"
+                class="btn close-modal-button"
+                type="button"
+              >
+                ❌
+              </button>
+            </div>
+          </dialog>
+        </div>
       </div>
     </nav>
 
@@ -107,7 +108,7 @@
     <!-- Main Container -->
     <div class="main-container"></div>
     <!-- Add Assignment Modal -->
-    <dialog id="add-assignment-modal" class="modal">
+    <dialog id="add-assignment-modal" class="trackit-modal">
       <div class="modal-header">
         <h1>Add Assignment</h1>
         <button
@@ -177,7 +178,7 @@
       </div>
     </dialog>
     <!-- Edit Assignment Modal -->
-    <dialog id="edit-assignment-modal" class="modal">
+    <dialog id="edit-assignment-modal" class="trackit-modal">
       <div class="modal-header">
         <h1>Edit Assignment</h1>
         <button
@@ -247,7 +248,7 @@
       </div>
     </dialog>
     <!-- Gen AI modal -->
-    <dialog id="gen-ai-modal" class="modal">
+    <dialog id="gen-ai-modal" class="trackit-modal">
       <div class="modal-header">
         <h1>AI ✨ -</h1>
         <button
@@ -262,5 +263,27 @@
       <br />
       <gen-ai />
     </dialog>
+
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
+      integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
+    <script src="./lib/showdown.min.js"></script>
+
+    <!-- Indexed DB promised API wrapper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/idb@8/build/umd.js"></script> -->
+    <script src="./lib/umd.js"></script>
+    <!-- Script Files  -->
+    <script type="module" src="./script/modalHandler.js" defer></script>
+    <script type="module" src="./script/formHandler.js" defer></script>
+    <script type="module" src="./script/cardEventHandlers.js"></script>
+    <script type="module" src="./script/main.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
