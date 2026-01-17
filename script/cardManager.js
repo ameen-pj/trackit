@@ -1,7 +1,7 @@
 const mainContainer = document.querySelector(".main-container");
 
 export function addCard(assignment) {
-  let card = `<assignment-card id="${assignment.id}" title="${assignment.title}" description="${assignment.description}" duedate="${assignment.duedate}" status="${assignment.status}" />`;
+  let card = `<assignment-card class="col-12 col-md-6 col-lg-4" id="${assignment.id}" title="${assignment.title}" description="${assignment.description}" duedate="${assignment.duedate}" status="${assignment.status}" />`;
   mainContainer.insertAdjacentHTML("beforeend", card);
 }
 
