@@ -60,38 +60,34 @@
 
       <!-- collapse div -->
       <div class="collapse navbar-collapse" id="trackitNavbar">
-        <div class="navbar-items ms-auto">
+        
+        
+        <div class="ms-auto d-flex align-items-center gap-3 py-2 py-lg-0">
+          
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0">🔍</span>
+            <input 
+              type="search" 
+              id="search" 
+              class="ps-0 form-control border-start-0 shadow-none"
+              placeholder="Search..."
+              aria-label="Search"
+            >
+          </div>
+
           <button
             id="add-assignment"
             data-modal-id="#add-assignment-modal"
-            class="btn btn-success open-modal-button"
+            class="btn btn-success open-modal-button text-nowrap"
           >
             Add Assignment +
           </button>
-          <button class="btn open-modal-button" data-modal-id="#search-modal">
-            🔍
-          </button>
-          <!-- <button class="btn btn-ai">Ask AI ✨</button> -->
-          <!-- Search dialog -->
-          <dialog id="search-modal" class="search-modal">
-            <div class="search-container">
-              <input
-                type="text"
-                name="search"
-                id="search"
-                placeholder="Search 🔍"
-              />
-              <button
-                type="button"
-                data-modal-id="#search-modal"
-                class="btn close-modal-button"
-                type="button"
-              >
-                ❌
-              </button>
-            </div>
-          </dialog>
+
         </div>
+
+
+
+
       </div>
     </nav>
 
