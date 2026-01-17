@@ -23,3 +23,9 @@ assignment-card.inactive {
   display: none;
   transition: 2s all ease;
 }
+
+
+assignment-card {
+  display: block; 
+  width: 100%;
+}

@@ -10,12 +10,14 @@ export class AssignmentCard extends HTMLElement {
       .assignment-card {
         display: flex;
         flex-direction:column;
-        justify-content:space-evenly;
+        justify-content:space-between;
         height:100%;
+        box-sizing: border-box;
         padding: 20px;
-        margin: 10px;
+        // margin: 10px;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
         border-radius: 8px;
+        background-color: white;
         font-family: Arial, sans-serif;
       }
 
@@ -29,25 +31,29 @@ export class AssignmentCard extends HTMLElement {
       }
 
       .assignment-header {
-        padding: 0px;
-        margin: 0px;
+        margin: 0 0 10px 0;
+        // padding: 0px;
         font-size: 1.5em;
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
+        word-wrap: break-word;
       }
 
       .assignment-description {
-        padding: 0px;
-        margin: 0px;
+        margin: 0 0 10px 0;
         font-size: 1em;
         color: #505050;
-        margin-bottom: 10px;
+        word-warp: break-word;
+        // padding: 0px;
+        // margin-bottom: 10px;
       }
 
       .assignment-due {
-        padding: 0px;
         margin: 0px;
         font-size: 0.9em;
         color: #808080;
+        // padding: 0px;
+        
+        
       }
 
       .assignment-due.past-due {
@@ -57,67 +63,92 @@ export class AssignmentCard extends HTMLElement {
 
       .assignment-status-container {
         border: none;
+        min-height: unset;
         height: auto;
-        min-height: 40px;
+         padding: 10px;
+         margin-top: 15px;
         box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
             rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
         display:flex;
-        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 10px;
-        padding: 8px;
+       
+        border-radius: 5px;
         font-family: "JetBrains Mono", monospace;
         font-weight: 800;
         font-size:0.75em;
-        border-radius: 5px;
+        
       }
 
+      @media (min-width: 1200px){
+        .assignment-status-container{
+          flex-wrap: nowrap;
+          gap: 15px;
+          padding: 10px 0;
+        }
+      
+      }
+
+
+
+
+
       .assignment-status-container label {
-        width: auto;
-        // height:100%;
         display:flex;
-        justify-content: center;
+        // width: auto;
+        // height:100%;
+        
+        // justify-content: center;
         align-items:center;
         white-space: nowrap;
         cursor: pointer;
 
       }
 
-      @media (min-width: 992px){
-        .assignment-status-container{
-          flex-wrap: nowrap;
-          justify-content: center ; 
-          min-height: unset;
-          padding: 10px 0;
-          gap: 20px;
-        }
-      
-      }
-
-
-      .assignment-status-container input[type="radio"] {
-        margin-top: 0;
-        margin-right: 5px;
+       .assignment-status-container input[type="radio"] {
+        margin: 0 5px 0 0;
       
       
       }
+
+      // @media (min-width: 992px){
+      //   .assignment-status-container{
+      //     flex-wrap: nowrap;
+      //     gap: 20px;
+      //     padding: 10px 0;
+      //     // justify-content: center ; 
+      //     // min-height: unset;
+          
+          
+      //   }
+      
+      // }
+
+
+     
 
 
       .assignment-buttons {
         width:100%;
-        height:30%;
+        margin-top: 20px;
+        // height:30%;
         display: flex;
-        justify-content:space-around;
+        justify-content:space-between;
         align-items:center;
+        flex-wrap: wrap;
+        gap: 10px;
       }
 
       .btn {
-        padding: 8px 15px;
+        flex: 1 1 auto;
+        padding: 8px 10px;
         font-size: 0.9em;
         cursor: pointer;
         border: none;
         border-radius: 5px;
+        white-space: nowrap;
       }
 
       .btn:hover {
