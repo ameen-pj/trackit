@@ -15,17 +15,12 @@ body {
   /* gap: 20px; */
 }
 
-/* .main-container assignment-card {
-  width: 28%;
-} */
-
 assignment-card.inactive {
   display: none;
   transition: 2s all ease;
 }
 
-
 assignment-card {
-  display: block; 
+  display: block;
   width: 100%;
 }

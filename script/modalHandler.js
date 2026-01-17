@@ -29,7 +29,6 @@ document.addEventListener("keyup", (event) => {
 // Close all modals on escape except AI modal
 document.addEventListener("keyup", (event) => {
   if (event.key === "Escape") {
-    
     document.querySelector("#add-assignment-modal").close();
     document.querySelector("#edit-assignment-modal").close();
 

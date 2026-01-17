@@ -43,7 +43,7 @@ document.addEventListener("deleteAssignment", async (event) => {
 document.addEventListener("populateEditAssignmentModal", (event) => {
   const editAssignmentModal = document.querySelector("#edit-assignment-modal");
   const editAssignmentForm = editAssignmentModal.querySelector(
-    "#edit-assignment-form"
+    "#edit-assignment-form",
   );
   editAssignmentModal.setAttribute("data-assignment-id", event.detail.id);
 
@@ -54,7 +54,7 @@ document.addEventListener("populateEditAssignmentModal", (event) => {
   editAssignmentForm.querySelector("#assignment-duedate").value =
     event.detail.duedate;
   editAssignmentForm.querySelector(
-    `input[data-assignment-status="${event.detail.status}"]`
+    `input[data-assignment-status="${event.detail.status}"]`,
   ).checked = true;
 
   editAssignmentModal.showModal();

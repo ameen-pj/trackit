@@ -29,7 +29,7 @@ export class OllamaGenAIService extends HTMLElement {
     console.log("Inside GenAI Response:" + prompt);
 
     const ollamaURL = `http://${this.getAttribute(
-      "ollamahost"
+      "ollamahost",
     )}:${this.getAttribute("ollamaport")}/api/generate`;
 
     console.log("ollamaURL:" + ollamaURL);
@@ -42,7 +42,7 @@ export class OllamaGenAIService extends HTMLElement {
           detail: {
             data: "Gen AI Started with prompt" + " " + prompt,
           },
-        })
+        }),
       );
 
       const response = await fetch(ollamaURL, {
@@ -90,11 +90,11 @@ export class OllamaGenAIService extends HTMLElement {
           detail: {
             data: "Gen AI Completed with prompt:" + " " + prompt,
           },
-        })
+        }),
       );
 
       aiResponseElement.innerHTML = converter.makeHtml(
-        aiResponseElement.innerText
+        aiResponseElement.innerText,
       );
     } catch (error) {
       console.log(error);

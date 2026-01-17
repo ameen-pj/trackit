@@ -113,18 +113,6 @@ export class AssignmentCard extends HTMLElement {
       
       }
 
-      // @media (min-width: 992px){
-      //   .assignment-status-container{
-      //     flex-wrap: nowrap;
-      //     gap: 20px;
-      //     padding: 10px 0;
-      //     // justify-content: center ; 
-      //     // min-height: unset;
-          
-          
-      //   }
-      
-      // }
 
 
      
@@ -257,7 +245,7 @@ export class AssignmentCard extends HTMLElement {
       .querySelectorAll('input[name="assignment-status-radio"]')
       .forEach((radio) => {
         radio.addEventListener("change", (event) =>
-          this.onStatusUpdate(event.target.dataset.assignmentStatus)
+          this.onStatusUpdate(event.target.dataset.assignmentStatus),
         );
       });
   }
@@ -270,7 +258,7 @@ export class AssignmentCard extends HTMLElement {
     const container = this.shadowRoot.querySelector(".assignment-card");
     const title = this.shadowRoot.querySelector(".assignment-header");
     const description = this.shadowRoot.querySelector(
-      ".assignment-description"
+      ".assignment-description",
     );
     const dueDate = this.shadowRoot.querySelector(".assignment-due");
 
@@ -294,7 +282,7 @@ export class AssignmentCard extends HTMLElement {
     }
 
     this.shadowRoot.querySelector(
-      `input[data-assignment-status="${this.getAttribute("status")}"]`
+      `input[data-assignment-status="${this.getAttribute("status")}"]`,
     ).checked = true;
   }
 
@@ -340,7 +328,7 @@ export class AssignmentCard extends HTMLElement {
       this.getAttribute("title"),
       this.getAttribute("description"),
       this.getAttribute("duedate"),
-      status
+      status,
     );
 
     const event = new CustomEvent("updateStatus", {

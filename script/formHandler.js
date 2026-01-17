@@ -12,7 +12,7 @@ addAssignmentForm.addEventListener("submit", async (event) => {
   // Get Form Data
   let title = addAssignmentForm.querySelector("#assignment-title").value;
   let description = addAssignmentForm.querySelector(
-    "#assignment-description"
+    "#assignment-description",
   ).value;
   let duedate = addAssignmentForm.querySelector("#assignment-duedate").value;
   let status = addAssignmentForm
@@ -26,7 +26,7 @@ addAssignmentForm.addEventListener("submit", async (event) => {
     title,
     description,
     duedate,
-    status
+    status,
   );
   // Adding to DB
   await AssignmentManagement.addAssignment(assignment);
@@ -46,7 +46,7 @@ editAssignmentForm.addEventListener("submit", async (event) => {
   // Get Form Data
   let title = editAssignmentForm.querySelector("#assignment-title").value;
   let description = editAssignmentForm.querySelector(
-    "#assignment-description"
+    "#assignment-description",
   ).value;
   let duedate = editAssignmentForm.querySelector("#assignment-duedate").value;
   let status = editAssignmentForm
