@@ -57,24 +57,50 @@ export class AssignmentCard extends HTMLElement {
 
       .assignment-status-container {
         border: none;
-        height: 10%;
+        height: auto;
+        min-height: 40px;
         box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
             rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
         display:flex;
-        justify-content:space-evenly;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
+        gap: 10px;
+        padding: 8px;
         font-family: "JetBrains Mono", monospace;
         font-weight: 800;
-        font-size:0.68em;
+        font-size:0.75em;
+        border-radius: 5px;
       }
 
       .assignment-status-container label {
-        width:33%;
-        height:100%;
+        width: auto;
+        // height:100%;
         display:flex;
-        justify-content:space-evenly;
+        justify-content: center;
         align-items:center;
+        white-space: nowrap;
+        cursor: pointer;
 
+      }
+
+      @media (min-width: 992px){
+        .assignment-status-container{
+          flex-wrap: nowrap;
+          justify-content: center ; 
+          min-height: unset;
+          padding: 10px 0;
+          gap: 20px;
+        }
+      
+      }
+
+
+      .assignment-status-container input[type="radio"] {
+        margin-top: 0;
+        margin-right: 5px;
+      
+      
       }
 
 
