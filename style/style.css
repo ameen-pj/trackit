@@ -19,8 +19,6 @@ body {
   width: 28%;
 } */
 
-
-
 assignment-card.inactive {
   display: none;
   transition: 2s all ease;

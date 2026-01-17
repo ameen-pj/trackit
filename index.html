@@ -35,9 +35,6 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
-
-
-
       <a class="logo-container navbar-brand" href="#">
         <img
           class="logo"
@@ -63,10 +60,6 @@
 
       <!-- collapse div -->
       <div class="collapse navbar-collapse" id="trackitNavbar">
-
-
-
-
         <div class="navbar-items ms-auto">
           <button
             id="add-assignment"
@@ -124,22 +117,57 @@
       <br />
       <div class="modal-body">
         <form id="add-assignment-form" class="modal-form">
-          <div class="input-container">
-            <label for="assignment-title">Assignment Title</label>
-            <input type="text" id="assignment-title" />
-          </div>
-          <div class="input-container">
-            <label for="assignment-description">Assignment Description</label>
-            <input type="text" id="assignment-description" />
+          <div class="input-container mb-3">
+            <label for="assignment-title" class="form-label"
+              >Assignment Title</label
+            >
+            <input
+              type="text"
+              id="assignment-title"
+              class="form-control"
+              placeholder="Enter title..."
+            />
           </div>
 
-          <div class="input-container">
-            <label for="assignment-duedate">Due Date</label>
-            <input type="datetime-local" id="assignment-duedate" />
+
+
+
+          <div class="input-container mb-3">
+            <label for="assignment-description" class="form-label"
+              >Assignment Description</label
+            >
+            <input
+              type="text"
+              id="assignment-description"
+              class="form-control"
+              placeholder="Enter description..."
+            />
           </div>
+
+
+
+
+         <div class="input-container mb-3">
+            <label for="assignment-duedate" class="form-label"
+              >Due Date</label
+            >
+            <input
+              type="datetime-local"
+              id="assignment-duedate"
+              class="form-control"
+            />
+          </div>
+
+
+
+
 
           <div class="input-container radio-container">
             <fieldset id="assignment-status">
+
+
+
+
               <label>
                 <input
                   type="radio"
@@ -162,6 +190,14 @@
                   value="COMPLETE"
                 />Complete ✅
               </label>
+
+
+
+
+
+
+
+              
             </fieldset>
           </div>
 
