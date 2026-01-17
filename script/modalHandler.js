@@ -21,15 +21,17 @@ closeModalButtons.forEach((closeModalButton) => {
 
 // Shortcut for search bar
 document.addEventListener("keyup", (event) => {
-  if (event.key === "/") {
-    document.querySelector("#search-modal").show();
+  if (event.key === "/" && document.activeElement.tagName !== "INPUT") {
+    event.preventDefault();
+    document.querySelector("#search").focus();
   }
 });
 // Close all modals on escape except AI modal
 document.addEventListener("keyup", (event) => {
   if (event.key === "Escape") {
-    document.querySelector("#search-modal").close();
     document.querySelector("#add-assignment-modal").close();
     document.querySelector("#edit-assignment-modal").close();
+
+    document.querySelector("#search").blur();
   }
 });

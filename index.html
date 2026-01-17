@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,34 +19,23 @@
       href="https://fonts.googleapis.com/css2?family=Liter&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
 
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/navbar.css" />
     <link rel="stylesheet" href="./style/buttons.css" />
     <link rel="stylesheet" href="./style/modal.css" />
-
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
-      integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script> -->
-    <script src="./lib/showdown.min.js"></script>
-
-    <!-- Indexed DB promised API wrapper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/idb@8/build/umd.js"></script> -->
-    <script src="./lib/umd.js"></script>
-    <!-- Script Files  -->
-    <script type="module" src="./script/modalHandler.js" defer></script>
-    <script type="module" src="./script/formHandler.js" defer></script>
-    <script type="module" src="./script/cardEventHandlers.js"></script>
-    <script type="module" src="./script/main.js"></script>
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo-container">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <a class="logo-container navbar-brand" href="#">
         <img
           class="logo"
           src="./assets/logo.png"
@@ -55,38 +44,42 @@
           alt="Logo"
         />
         <h1>Trackit</h1>
-      </div>
-      <div class="navbar-items">
-        <button
-          id="add-assignment"
-          data-modal-id="#add-assignment-modal"
-          class="btn btn-success open-modal-button"
-        >
-          Add Assignment +
-        </button>
-        <button class="btn open-modal-button" data-modal-id="#search-modal">
-          🔍
-        </button>
-        <!-- <button class="btn btn-ai">Ask AI ✨</button> -->
-        <!-- Search dialog -->
-        <dialog id="search-modal" class="search-modal">
-          <div class="search-container">
+      </a>
+      <!-- hamburger -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#trackitNavbar"
+        aria-controls="trackitNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- collapse div -->
+      <div class="collapse navbar-collapse" id="trackitNavbar">
+        <div class="ms-auto d-flex align-items-center gap-3 py-2 py-lg-0">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0">🔍</span>
             <input
-              type="text"
-              name="search"
+              type="search"
               id="search"
-              placeholder="Search 🔍"
+              class="ps-2 form-control shadow-none"
+              placeholder="Search..."
+              aria-label="Search"
             />
-            <button
-              type="button"
-              data-modal-id="#search-modal"
-              class="btn close-modal-button"
-              type="button"
-            >
-              ❌
-            </button>
           </div>
-        </dialog>
+
+          <button
+            id="add-assignment"
+            data-modal-id="#add-assignment-modal"
+            class="btn btn-success open-modal-button text-nowrap"
+          >
+            Add Assignment +
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -94,9 +87,9 @@
     <br />
 
     <!-- Main Container -->
-    <div class="main-container"></div>
+    <div class="main-container row g-4 p-4"></div>
     <!-- Add Assignment Modal -->
-    <dialog id="add-assignment-modal" class="modal">
+    <dialog id="add-assignment-modal" class="trackit-modal">
       <div class="modal-header">
         <h1>Add Assignment</h1>
         <button
@@ -112,18 +105,37 @@
       <br />
       <div class="modal-body">
         <form id="add-assignment-form" class="modal-form">
-          <div class="input-container">
-            <label for="assignment-title">Assignment Title</label>
-            <input type="text" id="assignment-title" />
-          </div>
-          <div class="input-container">
-            <label for="assignment-description">Assignment Description</label>
-            <input type="text" id="assignment-description" />
+          <div class="input-container mb-3">
+            <label for="assignment-title" class="form-label"
+              >Assignment Title</label
+            >
+            <input
+              type="text"
+              id="assignment-title"
+              class="form-control shadow-none"
+              placeholder="Enter title..."
+            />
           </div>
 
-          <div class="input-container">
-            <label for="assignment-duedate">Due Date</label>
-            <input type="datetime-local" id="assignment-duedate" />
+          <div class="input-container mb-3">
+            <label for="assignment-description" class="form-label"
+              >Assignment Description</label
+            >
+            <input
+              type="text"
+              id="assignment-description"
+              class="form-control shadow-none"
+              placeholder="Enter description..."
+            />
+          </div>
+
+          <div class="input-container mb-3">
+            <label for="assignment-duedate" class="form-label">Due Date</label>
+            <input
+              type="datetime-local"
+              id="assignment-duedate"
+              class="form-control shadow-none"
+            />
           </div>
 
           <div class="input-container radio-container">
@@ -166,7 +178,7 @@
       </div>
     </dialog>
     <!-- Edit Assignment Modal -->
-    <dialog id="edit-assignment-modal" class="modal">
+    <dialog id="edit-assignment-modal" class="trackit-modal">
       <div class="modal-header">
         <h1>Edit Assignment</h1>
         <button
@@ -182,16 +194,28 @@
         <form id="edit-assignment-form" class="modal-form">
           <div class="input-container">
             <label for="assignment-title">Assignment Title</label>
-            <input type="text" id="assignment-title" />
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="assignment-title"
+            />
           </div>
           <div class="input-container">
             <label for="assignment-description">Assignment Description</label>
-            <input type="text" id="assignment-description" />
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="assignment-description"
+            />
           </div>
 
           <div class="input-container">
             <label for="assignment-duedate">Due Date</label>
-            <input type="datetime-local" id="assignment-duedate" />
+            <input
+              type="datetime-local"
+              class="form-control shadow-none"
+              id="assignment-duedate"
+            />
           </div>
 
           <div class="input-container radio-container">
@@ -236,7 +260,7 @@
       </div>
     </dialog>
     <!-- Gen AI modal -->
-    <dialog id="gen-ai-modal" class="modal">
+    <dialog id="gen-ai-modal" class="trackit-modal">
       <div class="modal-header">
         <h1>AI ✨ -</h1>
         <button
@@ -251,5 +275,27 @@
       <br />
       <gen-ai />
     </dialog>
+
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
+      integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
+    <script src="./lib/showdown.min.js"></script>
+
+    <!-- Indexed DB promised API wrapper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/idb@8/build/umd.js"></script> -->
+    <script src="./lib/umd.js"></script>
+    <!-- Script Files  -->
+    <script type="module" src="./script/modalHandler.js" defer></script>
+    <script type="module" src="./script/formHandler.js" defer></script>
+    <script type="module" src="./script/cardEventHandlers.js"></script>
+    <script type="module" src="./script/main.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
