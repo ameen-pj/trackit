@@ -1,7 +1,8 @@
 import { AssignmentManagement } from "./backend/AssignmentManagement.js";
 import { addCard } from "./cardManager.js";
 import { AssignmentCard } from "./component/AssignmentCard.js";
-import { OllamaGenAIService } from "./component/OllamaGenAIService.js";
+// CHANGE: Importing Gemini instead of Ollama
+import { GeminiGenAIService } from "./component/GeminiGenAIService.js";
 
 const refreshAssignmentCards = new CustomEvent("refreshAssignmentCards");
 
@@ -14,8 +15,10 @@ document.addEventListener("refreshAssignmentCards", async (event) => {
   });
 });
 
-// Define assignment card
+// Define components
 customElements.define("assignment-card", AssignmentCard);
-customElements.define("gen-ai", OllamaGenAIService);
+
+// CHANGE: Registering Gemini service to the <gen-ai> tag
+customElements.define("gen-ai", GeminiGenAIService);
 
 document.dispatchEvent(refreshAssignmentCards);
